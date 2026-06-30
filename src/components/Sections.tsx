@@ -7,16 +7,12 @@ export function About() {
     <section id="about" className="py-24 bg-paper">
       <div className="section-inner grid grid-cols-1 md:grid-cols-[1.3fr_1fr] gap-16 items-center">
         <div>
-          <span className="eyebrow">About the workshop</span>
+          <span className="eyebrow">About the Workshop</span>
           <h2 className="text-[clamp(1.8rem,3vw,2.4rem)] mb-5">
-            Come as you are. Leave with a <strong className="text-orange">system</strong>.
+            Clarity & Decisions Without Noise.
           </h2>
           <p className="text-ink/70 text-[16.5px] leading-relaxed max-w-[480px] mb-9">
-            Param is a warm, practical, in-person workshop built for real life — not
-            another framework you'll forget by Friday. We'll help you build
-            <strong className="text-ink font-bold"> structure, clarity, and momentum </strong> 
-            using one simple methodology, worked through together in the room. No theory for theory's sake — you'll
-            walk out with something you can actually use that same evening.
+            This free workshop is an intentional space for disciplined self-inquiry, acting as a tactical primer to the PARAM methodology. You will learn how to transition from merely functioning well to performing at your peak by previewing our core combat-decision systems. <em className="text-ink font-semibold">*Note: At the end of this high-value session, we will extend an exclusive invitation to our immersive 30 August physical bootcamp for those ready to execute these systems at the highest level.*</em>
           </p>
           <div className="flex gap-10 flex-wrap">
             <div className="flex flex-col">
@@ -24,12 +20,12 @@ export function About() {
               <span className="text-[13px] text-ink/60 mt-1.5">Part methodology</span>
             </div>
             <div className="flex flex-col">
-              <span className="font-display text-[2.4rem] text-orange leading-none">2<span className="text-base ml-0.5">hrs</span></span>
-              <span className="text-[13px] text-ink/60 mt-1.5">Focused, in-person</span>
+              <span className="font-display text-[2.4rem] text-orange leading-none">LIVE</span>
+              <span className="text-[13px] text-ink/60 mt-1.5">Format</span>
             </div>
             <div className="flex flex-col">
-              <span className="font-display text-[2.4rem] text-orange leading-none">6</span>
-              <span className="text-[13px] text-ink/60 mt-1.5">Bonuses included</span>
+              <span className="font-display text-[2.4rem] text-orange leading-none">5</span>
+              <span className="text-[13px] text-ink/60 mt-1.5">Free Bonuses</span>
             </div>
           </div>
         </div>
@@ -46,19 +42,19 @@ export function About() {
           <div className="flex items-center gap-3.5 py-4 border-b border-ink-line">
             <Clock className="text-orange" size={20} />
             <div>
-              <span className="block text-xs text-sky font-mono tracking-[0.06em] uppercase">Time</span>
-              <span className="block font-semibold text-[15.5px] mt-0.5">4:00 PM – 6:00 PM</span>
+              <span className="block text-xs text-sky font-mono tracking-[0.06em] uppercase">Format</span>
+              <span className="block font-semibold text-[15.5px] mt-0.5">LIVE WORKSHOP</span>
             </div>
           </div>
           <div className="flex items-center gap-3.5 py-4 border-b border-ink-line">
             <MapPin className="text-orange" size={20} />
             <div>
-              <span className="block text-xs text-sky font-mono tracking-[0.06em] uppercase">Location</span>
-              <span className="block font-semibold text-[15.5px] mt-0.5">Final venue to be announced</span>
+              <span className="block text-xs text-sky font-mono tracking-[0.06em] uppercase">Entry</span>
+              <span className="block font-semibold text-[15.5px] mt-0.5">100% FREE</span>
             </div>
           </div>
           <a href="#register" className="block text-center mt-6 bg-orange text-[#1A0A00] font-bold py-3.5 rounded-full hover:bg-mango transition-colors">
-            Book My Seat
+            Reserve Your Free Seat
           </a>
         </div>
       </div>
@@ -68,10 +64,10 @@ export function About() {
 
 export function Framework() {
   const steps = [
-    { num: '01', color: '#F17720', title: 'Life Audit', desc: 'Evaluate your current reality across key life areas. Identify strengths, gaps, and opportunities before you plan a single change.' },
-    { num: '02', color: '#FFA630', title: 'Goal Alignment', desc: 'Connect your daily actions with your long-term vision, so effort in the present actually moves you toward where you want to be.' },
-    { num: '03', color: '#00A7E1', title: 'Routine Design', desc: 'Build routines that create consistency and discipline — systems that hold up on your worst days, not just your best ones.' },
-    { num: '04', color: '#0474BA', title: 'Execution System', desc: 'Create a practical plan for sustained progress, so the framework keeps working long after the workshop ends.' }
+    { num: '01', color: '#F17720', title: 'Terrain Assessment (ASSESS)', desc: '“Know your ground before moving forward.” An introduction to honestly evaluating your operational bottlenecks and life goals.' },
+    { num: '02', color: '#FFA630', title: 'Mission Architecture (PLAN)', desc: '“Plans leading to victory.” Learn how vague ideas must be converted into structured, counter-adversarial contingencies.' },
+    { num: '03', color: '#00A7E1', title: 'Discipline Blueprint (BUILD)', desc: '“Discipline is built, not imposed.” A look into the habits and personal operating standards that withstand the pressure of scaling.' },
+    { num: '04', color: '#0474BA', title: 'Operation Inner Truth (REVIEW)', desc: '“Understand yourself better.” The military debriefing framework for learning, adapting, and growing with precision.' }
   ];
 
   return (
@@ -79,10 +75,10 @@ export function Framework() {
       <div className="section-inner">
         <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-14 items-start">
           <div>
-            <span className="eyebrow eyebrow-light">What you'll learn</span>
+            <span className="eyebrow eyebrow-light">What You'll Learn</span>
             <h2 className="text-[clamp(1.9rem,3.4vw,2.6rem)] max-w-[600px] mb-3.5">The 4-Part Methodology Framework</h2>
             <p className="text-silver/55 text-base max-w-[480px] mb-16">
-              One connected path, four stages — <strong className="text-mango font-bold">each builds directly on the one before it.</strong>
+              One connected path, four stages. In this free session, we will touch upon the key pillars of the <strong className="text-mango font-bold">Army Gold Standards.</strong>
             </p>
 
             <div className="relative grid gap-0">
@@ -121,26 +117,28 @@ export function Framework() {
 
 export function Bonuses() {
   const bonuses = [
-    { num: 1, title: "Find Your Life's True Purpose With NLP", price: '1,997' },
-    { num: 2, title: "Manifest Faster With NLP", price: '1,997' },
-    { num: 3, title: "Vision Board Guide", price: '1,997' },
-    { num: 4, title: "The Confidence Switch", price: '1,997' },
-    { num: 5, title: "121 Limiting Beliefs", price: '2,999' }
+    { num: 1, title: "The Tactical Field Manual", price: '1,997', desc: "A PDF workbook for your pre-event diagnostic terrain assessment." },
+    { num: 2, title: "Execution Failure Case Study", price: '2,999', desc: "“Why Fast-Scaling Delhi Startups Stall at 30 Employees”" },
+    { num: 3, title: "Strategic Focus Blueprint", price: '1,997', desc: "Tactical resources to build unshakable focus and strategic leadership." },
+    { num: 4, title: "The Confidence Switch", price: '1,997', desc: "Tactical resources to build unshakable focus and strategic leadership." },
+    { num: 5, title: "121 Limiting Beliefs", price: '1,997', desc: "Tactical resources to build unshakable focus and strategic leadership." }
   ];
 
   return (
     <section id="bonuses" className="py-24 bg-paper">
       <div className="section-inner">
-        <span className="eyebrow">But Wait!!! I've Something More For You!</span>
+        <span className="eyebrow">But Wait!!! I've Something More For You!.</span>
         <h2 className="text-[clamp(1.9rem,3.2vw,2.4rem)] mb-3 max-w-[560px]">5 Exclusive Bonuses — Included Free</h2>
-        <p className="text-ink/60 text-base mb-12">Every participant gets these 5 powerful digital resources to accelerate their transformation.</p>
+        <p className="text-ink/60 text-base mb-12">Every participant gets these powerful digital resources immediately upon registration to accelerate their transformation.</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {bonuses.slice(0, 3).map(b => (
             <div key={b.num} className="bonus-card">
               <div className="bonus-mockup-wrap">
-                 <div className="w-full h-full bg-gradient-to-br from-ink to-ink-soft rounded-md shadow flex items-center justify-center p-2 text-center text-white border-l-[6px] border-orange">
-                   <span className="text-sm font-bold opacity-80">{b.title}</span>
+                 <div className="w-full h-full bg-gradient-to-br from-ink to-ink-soft rounded-md shadow flex items-center justify-center p-4 text-center text-white border-l-[6px] border-orange flex-col justify-between">
+                   <span className="text-[11px] font-bold text-sky uppercase tracking-wider">Bonus {b.num}</span>
+                   <span className="text-xs font-bold leading-tight my-2">{b.title}</span>
+                   <span className="text-[9px] opacity-60 line-clamp-2">{b.desc}</span>
                  </div>
               </div>
               <span className="font-mono text-[11.5px] text-blue tracking-[0.08em] uppercase mb-1.5">🎁 Bonus: {b.num}</span>
@@ -153,8 +151,10 @@ export function Bonuses() {
           {bonuses.slice(3, 5).map(b => (
              <div key={b.num} className="bonus-card">
               <div className="bonus-mockup-wrap">
-                 <div className="w-full h-full bg-gradient-to-br from-ink to-ink-soft rounded-md shadow flex items-center justify-center p-2 text-center text-white border-l-[6px] border-orange">
-                   <span className="text-sm font-bold opacity-80">{b.title}</span>
+                 <div className="w-full h-full bg-gradient-to-br from-ink to-ink-soft rounded-md shadow flex items-center justify-center p-4 text-center text-white border-l-[6px] border-orange flex-col justify-between">
+                   <span className="text-[11px] font-bold text-sky uppercase tracking-wider">Bonus {b.num}</span>
+                   <span className="text-xs font-bold leading-tight my-2">{b.title}</span>
+                   <span className="text-[9px] opacity-60 line-clamp-2">{b.desc}</span>
                  </div>
               </div>
               <span className="font-mono text-[11.5px] text-blue tracking-[0.08em] uppercase mb-1.5">🎁 Bonus: {b.num}</span>
@@ -192,7 +192,7 @@ export function Pricing() {
       <div className="section-inner">
         <p className="font-display text-[clamp(1.5rem,3vw,2rem)] text-[#c0392b] font-extrabold mb-3">Total Value Of Bonuses: ₹11,000</p>
         <p className="font-display text-[clamp(1.1rem,2vw,1.4rem)] text-ink mb-3">Normal Workshop Ticket Price: <s className="text-ink/45">₹999</s></p>
-        <p className="font-display text-[clamp(2rem,5vw,3rem)] text-[#2a7a2a] font-extrabold mb-8">Buy Today At Just ₹299</p>
+        <p className="font-display text-[clamp(2rem,5vw,3rem)] text-[#2a7a2a] font-extrabold mb-8">Buy Today At Just ₹0 (100% FREE)</p>
 
         <p className="font-display text-base font-bold text-ink mb-1.5">But For You Today It's Absolutely</p>
         <div className="inline-block bg-gradient-to-br from-[#2a7a2a] to-[#4CAF50] text-white font-display text-[clamp(2.2rem,5vw,3.4rem)] font-extrabold py-2.5 px-12 rounded-xl tracking-wide mb-8 shadow-[0_6px_24px_rgba(42,122,42,0.28)]">
@@ -226,7 +226,7 @@ export function Pricing() {
         </div>
 
         <a href="#register" className="btn-primary animate-shake text-[1.05rem] py-4 px-10 rounded-xl max-w-full">
-          I Want To Join The 21 Days Challenge & Claim My 2 Day Event Bonus At ₹299/–
+          Claim Free Seat Now
           <ArrowRight size={16} />
         </a>
         <p className="mt-3 text-[13.5px] text-ink/50 font-medium">Prices Will Increase To ₹999/– Once The Slots Are Filled</p>
@@ -302,8 +302,11 @@ export function Why() {
           <span className="eyebrow">Why attend</span>
           <h2 className="text-[clamp(1.9rem,3.2vw,2.4rem)] mb-3.5">Four reasons people show up.</h2>
           <p className="text-ink/60 text-base mb-8 max-w-[380px]">This isn't a lecture you watch. <strong className="text-ink font-bold">It's a room you work in.</strong></p>
+          <p className="text-[14.5px] text-ink/65 mb-8 max-w-[380px]">
+            Founders, professionals navigating complexity, and anyone done with half-measures. If you feel stuck or unclear, this primer will give you the diagnostic tools you need.
+          </p>
           <div className="w-full max-w-[380px] h-[220px] rounded-[var(--radius)] mb-8 border border-paper-line bg-gradient-to-br from-ink-line to-silver flex items-center justify-center">
-            <span className="text-ink/30 font-bold tracking-widest">LIVE WORKSHOP</span>
+            <span className="text-ink/30 font-bold tracking-widest flex items-center gap-2"><span className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse"></span> LIVE WORKSHOP</span>
           </div>
           <a href="#register" className="btn-primary">Reserve Your Seat</a>
         </div>
@@ -342,9 +345,9 @@ export function Register() {
       <div className="section-inner grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
         <div>
           <span className="eyebrow">Limited seats &middot; 11 July &middot; 100% FREE</span>
-          <h2 className="text-[clamp(1.9rem,3vw,2.4rem)] mb-4">Join the 21 Day Challenge — Absolutely Free</h2>
+          <h2 className="text-[clamp(1.9rem,3vw,2.4rem)] mb-4">Join the Free Workshop</h2>
           <p className="text-silver/60 text-base leading-[1.6] max-w-[420px] mb-8">
-            Fill in your details below. We'll confirm your seat and share the final venue and entry instructions by email and WhatsApp.
+            Fill in your details below. We'll confirm your seat and share the entry instructions by email and WhatsApp.
           </p>
 
           <div className="bg-orange/10 border border-orange/30 rounded-[var(--radius)] p-6 mb-8 max-w-[420px]">
@@ -359,8 +362,8 @@ export function Register() {
 
           <div className="flex flex-col gap-3.5">
             <div className="flex items-center gap-2.5 font-semibold text-[14.5px]"><Calendar className="text-orange" size={18}/> 11 July</div>
-            <div className="flex items-center gap-2.5 font-semibold text-[14.5px]"><Clock className="text-orange" size={18}/> 4:00 – 6:00 PM</div>
-            <div className="flex items-center gap-2.5 font-semibold text-[14.5px]"><MapPin className="text-orange" size={18}/> Venue TBA</div>
+            <div className="flex items-center gap-2.5 font-semibold text-[14.5px]"><Clock className="text-orange" size={18}/> LIVE WORKSHOP</div>
+            <div className="flex items-center gap-2.5 font-semibold text-[14.5px]"><MapPin className="text-orange" size={18}/> 100% FREE ACCESS</div>
           </div>
         </div>
 
@@ -371,22 +374,22 @@ export function Register() {
           </div>
           
           <div className="flex flex-col gap-1.5 mt-4">
-            <span className="text-[13px] font-semibold text-ink-soft">Name</span>
+            <span className="text-[13px] font-semibold text-ink-soft">Full Name</span>
             <input type="text" placeholder="Your full name" required className="font-body text-[15px] p-3.5 border border-ink/20 rounded-lg bg-white transition-colors focus:outline-none focus:border-orange focus:ring-2 focus:ring-orange/20" />
           </div>
           
           <div className="flex flex-col gap-1.5 mt-2">
-            <span className="text-[13px] font-semibold text-ink-soft">Mobile Number</span>
-            <input type="tel" placeholder="10-digit mobile number" pattern="[0-9]{10}" required className="font-body text-[15px] p-3.5 border border-ink/20 rounded-lg bg-white transition-colors focus:outline-none focus:border-orange focus:ring-2 focus:ring-orange/20" />
+            <span className="text-[13px] font-semibold text-ink-soft">WhatsApp Number</span>
+            <input type="tel" placeholder="10-digit WhatsApp number" pattern="[0-9]{10}" required className="font-body text-[15px] p-3.5 border border-ink/20 rounded-lg bg-white transition-colors focus:outline-none focus:border-orange focus:ring-2 focus:ring-orange/20" />
           </div>
           
           <div className="flex flex-col gap-1.5 mt-2">
-            <span className="text-[13px] font-semibold text-ink-soft">Email</span>
-            <input type="email" placeholder="you@email.com" required className="font-body text-[15px] p-3.5 border border-ink/20 rounded-lg bg-white transition-colors focus:outline-none focus:border-orange focus:ring-2 focus:ring-orange/20" />
+            <span className="text-[13px] font-semibold text-ink-soft">Business Email</span>
+            <input type="email" placeholder="you@company.com" required className="font-body text-[15px] p-3.5 border border-ink/20 rounded-lg bg-white transition-colors focus:outline-none focus:border-orange focus:ring-2 focus:ring-orange/20" />
           </div>
           
           <button type="submit" className={`mt-4 btn-primary btn-full ${submitted ? 'bg-[#2a7a2a] text-white hover:bg-[#2a7a2a]' : 'animate-shake'}`}>
-            {submitted ? 'You\'re In! ✓' : 'Join 21 Day Challenge Now — FREE'}
+            {submitted ? 'You\'re In! ✓' : 'Claim Free Seat Now'}
           </button>
           <p className="text-[12.5px] text-ink/50 text-center mt-2">By registering, you agree to our Terms & Privacy Policy.</p>
         </form>
@@ -399,11 +402,9 @@ export function FAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   const faqs = [
-    { q: "Who is this workshop for?", a: "Anyone who wants more clarity, consistency, and control in their day-to-day life — students, working professionals, or anyone feeling stuck in a reactive routine." },
-    { q: "Do I need prior experience?", a: "No prior experience or background is required. The framework is taught from the ground up and works for complete beginners." },
-    { q: "What should I bring?", a: "Just a notebook and pen, and an open mind. Some exercises work best when you write things down in the moment." },
-    { q: "Will there be recordings?", a: "This is an in-person, offline workshop and is not recorded or live-streamed. The experience is built around being present in the room." },
-    { q: "How can I contact the team?", a: "Reach us using the contact details in the footer below, and our team will respond as soon as possible." }
+    { q: "Is this workshop actually free?", a: "Yes, the 11 July live session is 100% free. You will receive real, actionable military frameworks without any cost." },
+    { q: "Is this a sales pitch?", a: "This workshop is a high-value primer focusing on real operational tactics. At the very end of the session, we will briefly pitch our upcoming physical 30 August Bootcamp for those who wish to train with us in person. The choice to upgrade is entirely yours." },
+    { q: "Why choose The Victory Code / PARAM?", a: "Because we deliver more than motivation—we transform lives. Led by Indian Army veterans, our programs combine battlefield-tested discipline with deep personal mastery." }
   ];
 
   return (
@@ -439,28 +440,19 @@ export function FAQ() {
 export function Footer() {
   return (
     <footer className="bg-[#08121C] text-silver/70 pt-16">
-      <div className="section-inner grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 pb-12 border-b border-ink-line">
+      <div className="section-inner grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 pb-12 border-b border-ink-line">
         <div>
           <div className="flex items-center gap-2">
             <span className="w-[9px] h-[9px] rounded-sm bg-orange"></span>
-            <span className="font-display text-[18px] tracking-wider font-bold text-silver">PARAM</span>
+            <span className="font-display text-[18px] tracking-wider font-bold text-silver">PARAM™</span>
           </div>
-          <p className="mt-2.5 text-[13.5px] text-silver/45">by MindYourLife</p>
+          <p className="mt-2.5 text-[13.5px] text-silver/45">by The Victory Code</p>
         </div>
         
         <div>
           <h4 className="font-mono text-xs tracking-[0.08em] uppercase text-sky mb-3.5">Contact</h4>
-          <p className="text-sm mb-2 hover:text-mango transition-colors cursor-pointer">hello@mindyourlife.in</p>
-          <p className="text-sm mb-2 hover:text-mango transition-colors cursor-pointer">+91 00000 00000</p>
-        </div>
-
-        <div>
-          <h4 className="font-mono text-xs tracking-[0.08em] uppercase text-sky mb-3.5">Follow</h4>
-          <div className="flex flex-col gap-2 text-sm">
-            <span className="hover:text-mango transition-colors cursor-pointer">Instagram</span>
-            <span className="hover:text-mango transition-colors cursor-pointer">LinkedIn</span>
-            <span className="hover:text-mango transition-colors cursor-pointer">YouTube</span>
-          </div>
+          <p className="text-sm mb-2 hover:text-mango transition-colors cursor-pointer">thevictorycode3@gmail.com</p>
+          <p className="text-sm mb-2 hover:text-mango transition-colors cursor-pointer">Mr. Uttam: +91 78142 36096</p>
         </div>
 
         <div>
@@ -470,7 +462,7 @@ export function Footer() {
         </div>
       </div>
       <div className="max-w-[1180px] mx-auto px-8 py-6 pb-24 text-[13px] text-silver/40">
-        <span>&copy; 2026 MindYourLife. All rights reserved.</span>
+        <span>&copy; 2026 thevictorycode.in. All rights reserved.</span>
       </div>
     </footer>
   );
@@ -481,7 +473,7 @@ export function StickyBar() {
   const y = useTransform(scrollYProgress, [0.2, 0.25], [100, 0]);
   
   const [nameIdx, setNameIdx] = useState(0);
-  const names = ['Harshita','Rohit','Priya','Aditya','Sneha','Rahul','Pooja','Vikram','Ananya','Karan'];
+  const names = ['Rahul', 'Priya', 'Aditya', 'Vikram', 'Ananya', 'Amit', 'Siddharth', 'Neha', 'Rohan', 'Karan'];
   
   useEffect(() => {
     const int = setInterval(() => setNameIdx(i => (i + 1) % names.length), 4500);
