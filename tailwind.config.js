@@ -26,9 +26,9 @@ export default {
         },
       },
       fontFamily: {
-        display: ['"Archivo Expanded"', '"Space Grotesk"', 'sans-serif'],
+        display: ['Outfit', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
-        body: ['Inter', 'sans-serif'],
+        body: ['Geist', 'sans-serif'],
       },
       animation: {
         'dash-flow': 'dash-flow 3s linear infinite',

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -15,7 +15,7 @@
   }
 
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Geist', sans-serif;
     background: #FAFAF8;
     color: #0B1B2B;
     -webkit-font-smoothing: antialiased;
@@ -23,9 +23,9 @@
   }
 
   h1, h2, h3 {
-    font-family: 'Archivo Expanded', 'Space Grotesk', sans-serif;
+    font-family: 'Outfit', sans-serif;
     font-weight: 700;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
     line-height: 1.08;
   }
 }
@@ -34,7 +34,15 @@
   .section-inner {
     max-width: var(--container);
     margin: 0 auto;
-    padding: 0 32px;
+    @apply px-5 sm:px-8;
+  }
+  
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
   
   .eyebrow {
