@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --container: 1180px;
+    --radius: 14px;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #FAFAF8;
+    color: #0B1B2B;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Archivo Expanded', 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.08;
+  }
+}
+
+@layer components {
+  .section-inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  
+  .eyebrow {
+    @apply inline-flex items-center gap-2 font-mono text-[12.5px] tracking-[0.12em] uppercase text-blue font-medium mb-4;
+  }
+  
+  .eyebrow::before {
+    content: "";
+    @apply w-[14px] h-[2px] bg-orange inline-block;
+  }
+  
+  .eyebrow-light {
+    @apply text-mango;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2.5 bg-orange text-[#1A0A00] font-bold text-[15.5px] py-[15px] px-[28px] rounded-full transition-all duration-150 ease-out shadow-[0_8px_24px_-8px_rgba(241,119,32,0.55)] hover:bg-mango hover:-translate-y-0.5;
+  }
+  
+  .btn-primary svg {
+    @apply transition-transform duration-200;
+  }
+  
+  .btn-primary:hover svg {
+    @apply translate-x-[3px];
+  }
+  
+  .btn-full {
+    @apply w-full justify-center;
+  }
+  
+  .btn-ghost {
+    @apply inline-flex items-center font-semibold text-[15px] text-silver py-[15px] px-2 border-b border-silver/30 transition-colors duration-200 hover:border-mango hover:text-mango;
+  }
+  
+  /* Bonus mockups */
+  .bonus-card {
+    @apply border-[1.5px] border-paper/10 rounded-[var(--radius)] py-[28px] px-[20px] pb-[24px] bg-white text-center transition-all duration-200 flex flex-col items-center hover:border-orange hover:-translate-y-1 hover:shadow-[0_12px_32px_-8px_rgba(241,119,32,0.18)];
+  }
+  
+  .bonus-mockup-wrap {
+    @apply w-[120px] h-[158px] mx-auto mb-[18px] relative transition-transform duration-200 drop-shadow-[0_8px_18px_rgba(11,27,43,0.22)];
+  }
+  
+  .bonus-card:hover .bonus-mockup-wrap {
+    @apply scale-[1.04] -rotate-1;
+  }
+  
+  .bonus-mockup-wrap img {
+    @apply w-full h-full object-cover rounded-md;
+  }
+}
