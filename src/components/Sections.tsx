@@ -1,14 +1,13 @@
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { Calendar, MapPin, Clock, ArrowRight, Plus, Play, X } from 'lucide-react';
+import { Calendar, MapPin, Clock, ArrowRight, Play, X } from 'lucide-react';
 
 export function About() {
   return (
     <section id="about" className="py-16 md:py-24 bg-paper">
       <div className="section-inner grid grid-cols-1 md:grid-cols-[1.3fr_1fr] gap-8 md:gap-16 items-center">
         <div>
-          <span className="eyebrow">About the Workshop</span>
-          <h2 className="text-[clamp(1.8rem,3vw,2.4rem)] mb-5 text-balance">
+          <h2 className="text-[clamp(1.8rem,3vw,2.4rem)] mb-5 text-balance mt-4">
             Clarity & Decisions Without Noise.
           </h2>
           <p className="text-ink/70 text-[16px] md:text-[16.5px] leading-relaxed max-w-[480px] mb-9">
@@ -193,8 +192,7 @@ export function Bonuses() {
   return (
     <section id="bonuses" className="py-16 md:py-24 bg-paper">
       <div className="section-inner">
-        <span className="eyebrow">But Wait!!! I've Something More For You!.</span>
-        <h2 className="text-[clamp(1.9rem,3.2vw,2.4rem)] mb-3 max-w-[560px] text-balance">5 Exclusive Bonuses — Included Free</h2>
+        <h2 className="text-[clamp(1.9rem,3.2vw,2.4rem)] mb-3 max-w-[560px] text-balance mt-4">5 Exclusive Bonuses (Included Free)</h2>
         <p className="text-ink/60 text-base mb-12">Every participant gets these powerful digital resources immediately upon registration to accelerate their transformation.</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -207,16 +205,12 @@ export function Bonuses() {
             >
               <div className="w-full">
                 <div className="bonus-mockup-wrap">
-                   <div className="w-full h-full bg-gradient-to-br from-ink to-ink-soft rounded-md shadow flex items-center justify-center p-4 text-center text-white border-l-[6px] border-orange flex-col justify-between">
-                     <span className="text-[11px] font-bold text-sky uppercase tracking-wider">Bonus {b.num}</span>
-                     <span className="text-xs font-bold leading-tight my-2">{b.title}</span>
-                     <span className="text-[9px] opacity-60 line-clamp-2">{b.desc}</span>
-                   </div>
+                  <img src="/assets/field_manual_mockup.png" alt={b.title} className="w-full h-full object-cover rounded-md" />
                 </div>
-                <span className="font-mono text-[11.5px] text-blue tracking-[0.08em] uppercase mb-1.5 block">🎁 Bonus: {b.num}</span>
+                <span className="font-mono text-[11.5px] text-blue tracking-[0.08em] uppercase mb-1.5 block">🎁 Bonus {b.num}</span>
                 <h3 className="text-base m-0 mb-2 leading-snug font-bold">{b.title}</h3>
               </div>
-              <div className="font-display text-base text-orange font-bold pt-2.5 mt-auto">Priced ₹ {b.price}/–</div>
+              <div className="font-display text-base text-orange font-bold pt-2.5 mt-auto">Value: ₹ {b.price}/-</div>
             </motion.div>
           ))}
         </div>
@@ -290,7 +284,7 @@ export function Pricing() {
           Claim Free Seat Now
           <ArrowRight size={16} />
         </motion.a>
-        <p className="mt-3 text-[13.5px] text-ink/50 font-medium">Prices Will Increase To ₹999/– Once The Slots Are Filled</p>
+        <p className="mt-3 text-[13.5px] text-ink/50 font-medium">Prices Will Increase To ₹999/- Once The Slots Are Filled</p>
       </div>
     </section>
   );
@@ -430,7 +424,7 @@ export function Testimonials() {
             className="md:col-span-5 bg-ink/40 border border-white/5 rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-[240px]"
           >
             <p className="text-[16px] md:text-[18px] leading-[1.6] text-silver/90 mb-8">
-              "Simple, structured, and something I actually kept using weeks later — not just workshop-day motivation."
+              "Simple, structured, and something I actually kept using weeks later, not just workshop-day motivation."
             </p>
             <div className="flex items-center gap-4 mt-auto">
               <div className="w-12 h-12 rounded-full bg-ink border border-white/10 text-white flex items-center justify-center font-bold text-lg">R</div>
@@ -598,7 +592,7 @@ export function Register() {
               <span className="font-display text-[2.6rem] text-[#2a7a2a] tracking-[0.04em] leading-none">FREE</span>
             </div>
             <p className="text-[13px] md:text-[13.5px] text-silver/65 m-0 leading-relaxed">
-              <strong className="text-mango font-bold">Includes all 5 bonuses worth ₹11,000</strong> — no hidden costs, no upsells in the room.
+              <strong className="text-mango font-bold">Includes all 5 bonuses worth ₹11,000</strong> (no hidden costs, no upsells in the room).
             </p>
           </div>
 
@@ -645,46 +639,40 @@ export function Register() {
 }
 
 export function FAQ() {
-  const [openIdx, setOpenIdx] = useState<number | null>(null);
-
   const faqs = [
     { q: "Is this workshop actually free?", a: "Yes, the 11 July live session is 100% free. You will receive real, actionable military frameworks without any cost." },
-    { q: "Is this a sales pitch?", a: "This workshop is a high-value primer focusing on real operational tactics. At the very end of the session, we will briefly pitch our upcoming physical 30 August Bootcamp for those who wish to train with us in person. The choice to upgrade is entirely yours." },
-    { q: "Why choose The Victory Code / PARAM?", a: "Because we deliver more than motivation—we transform lives. Led by Indian Army veterans, our programs combine battlefield-tested discipline with deep personal mastery." }
+    { q: "Is this a sales pitch?", a: "This workshop is a high-value primer. At the end, we briefly pitch our upcoming physical Bootcamp. The choice to upgrade is entirely yours." },
+    { q: "Why choose The Victory Code?", a: "Because we deliver more than motivation: we transform lives. Led by Indian Army veterans, combining battlefield-tested discipline with deep personal mastery." },
+    { q: "Who is this workshop designed for?", a: "Founders, professionals, and leaders navigating high-pressure environments who want to build military-grade discipline and execution frameworks." },
+    { q: "Will there be a recording?", a: "No. This is an interactive live workshop with real-time exercises. The true value lies in active participation and live debriefing." },
+    { q: "Are there any prerequisites?", a: "No prior experience or military background is required. Bring a notepad, a pen, an open mind, and 2 hours of uninterrupted focus." }
   ];
 
   return (
-    <section id="faq" className="py-16 md:py-24 bg-ink-soft text-silver">
-      <div className="section-inner max-w-[760px]">
-        <span className="eyebrow eyebrow-light">Before you book</span>
-        <h2 className="text-[clamp(1.9rem,3.2vw,2.4rem)] mb-10 text-balance">Frequently asked questions</h2>
+    <section id="faq" className="py-24 md:py-32 bg-ink-soft text-silver">
+      <div className="section-inner">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 border-t border-ink-line/50 pt-24">
+          <div className="md:col-span-5 md:pr-10">
+            <h2 className="text-[clamp(2.4rem,4vw,3.2rem)] font-display tracking-tight leading-none mb-6">
+              Frequently<br />asked<br />questions
+            </h2>
+            <p className="text-silver/60 text-[15px] leading-relaxed max-w-[280px]">
+              Everything you need to know about the upcoming live session and the PARAM methodology.
+            </p>
+          </div>
 
-        <div className="flex flex-col">
-          {faqs.map((faq, i) => (
-            <div key={i} className="border-b border-ink-line overflow-hidden">
-              <button 
-                onClick={() => setOpenIdx(openIdx === i ? null : i)}
-                className="w-full flex items-center justify-between py-5.5 font-display text-[16px] md:text-[17px] font-semibold text-silver text-left focus:outline-none"
-              >
-                <span>{faq.q}</span>
-                <Plus className={`text-orange transition-transform duration-250 shrink-0 ml-4 ${openIdx === i ? 'rotate-45' : ''}`} size={20} />
-              </button>
-              
-              <AnimatePresence initial={false}>
-                {openIdx === i && (
-                  <motion.div 
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.25, ease: "easeInOut" }}
-                    className="overflow-hidden"
-                  >
-                    <p className="pb-5.5 text-silver/60 text-[14.5px] md:text-[15px] leading-[1.6] max-w-[600px] pt-1">{faq.a}</p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
+          <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-12">
+            {faqs.map((faq, i) => (
+              <div key={i} className="flex flex-col gap-3">
+                <h3 className="font-display text-[19px] md:text-[20px] font-medium text-silver leading-snug">
+                  {faq.q}
+                </h3>
+                <p className="text-silver/60 text-[14.5px] leading-relaxed">
+                  {faq.a}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
