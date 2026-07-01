@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { Calendar, MapPin, Clock, ArrowRight, Plus } from 'lucide-react';
+import { Calendar, MapPin, Clock, ArrowRight, Plus, Play, X } from 'lucide-react';
 
 export function About() {
   return (
@@ -297,6 +297,32 @@ export function Pricing() {
 }
 
 export function Testimonials() {
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
+
+  const videoTestimonials = [
+    {
+      name: "Dr. Anuj Kumar",
+      role: "CMO, JP Hospital",
+      videoUrl: "https://asset.shubhampal.com/1.mp4",
+      initials: "AK",
+      color: "from-orange/20 to-mango/30"
+    },
+    {
+      name: "Prachi Gupta",
+      role: "Life Coach",
+      videoUrl: "https://asset.shubhampal.com/4.mp4",
+      initials: "PG",
+      color: "from-sky/20 to-blue/30"
+    },
+    {
+      name: "Priya Sharma",
+      role: "Co-Founder, CoreY",
+      videoUrl: "https://asset.shubhampal.com/3%20(1).mp4",
+      initials: "PS",
+      color: "from-mango/20 to-orange/30"
+    }
+  ];
+
   return (
     <section className="py-16 md:py-24 bg-ink-soft text-silver overflow-hidden">
       <div className="section-inner">
@@ -305,16 +331,45 @@ export function Testimonials() {
 
         <span className="block font-mono text-xs tracking-[0.1em] uppercase text-sky mb-5">Video testimonials</span>
         <div className="flex overflow-x-auto snap-x snap-mandatory gap-5 pb-4 scrollbar-none md:grid md:grid-cols-3 md:overflow-visible mb-12">
-          {[1,2,3].map(i => (
-            <div key={i} className="snap-start min-w-[240px] sm:min-w-0 aspect-[9/12] bg-gradient-to-br from-sky/20 to-blue/30 border border-ink-line rounded-[var(--radius)] relative overflow-hidden group">
-               <div className="absolute inset-0 flex flex-col items-center justify-center gap-3.5 bg-gradient-to-b from-ink/15 to-ink/65">
-                 <motion.div 
-                   whileTap={{ scale: 0.92 }}
-                   className="w-[52px] h-[52px] rounded-full bg-paper/90 text-ink flex items-center justify-center transition-transform group-hover:scale-110 cursor-pointer"
-                 >
-                   <div className="ml-1 opacity-80">▶</div>
-                 </motion.div>
-                 <span className="font-mono text-[11px] md:text-[11.5px] tracking-[0.06em] uppercase text-silver/85 text-center px-4">Participant success story</span>
+          {videoTestimonials.map((item, idx) => (
+            <div 
+              key={idx} 
+              onClick={() => setActiveVideo(item.videoUrl)}
+              className="snap-start min-w-[260px] sm:min-w-0 aspect-[9/12] bg-[#0E2030]/80 border border-ink-line rounded-[var(--radius)] relative overflow-hidden group cursor-pointer hover:border-orange/50 transition-all duration-300 flex flex-col justify-between p-6"
+            >
+               {/* Background Glow */}
+               <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/40 to-transparent z-[1]" />
+               
+               {/* Top Badge */}
+               <div className="z-10 flex justify-between items-start">
+                 <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-sky px-2.5 py-1 bg-sky/10 border border-sky/20 rounded-full">
+                   Success Story
+                 </span>
+               </div>
+
+               {/* Center Initials/Play Button Container */}
+               <div className="absolute inset-0 flex flex-col items-center justify-center gap-3.5 z-10">
+                 <div className="relative">
+                   <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${item.color} flex items-center justify-center font-display text-[22px] font-bold text-silver border border-silver/10 transition-transform duration-300 group-hover:scale-95 group-hover:opacity-40`}>
+                     {item.initials}
+                   </div>
+                   
+                   {/* Play Button Overlay */}
+                   <div className="absolute inset-0 flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity">
+                     <motion.div 
+                       whileTap={{ scale: 0.92 }}
+                       className="w-12 h-12 rounded-full bg-paper/90 text-ink flex items-center justify-center shadow-lg transition-transform group-hover:scale-110"
+                     >
+                       <Play size={18} fill="currentColor" className="ml-0.5 text-ink" />
+                     </motion.div>
+                   </div>
+                 </div>
+               </div>
+
+               {/* Profile Info */}
+               <div className="z-10 mt-auto pt-4">
+                 <h3 className="text-[16.5px] font-bold text-silver mb-0.5 leading-tight">{item.name}</h3>
+                 <p className="text-[12px] text-mango font-mono tracking-wide leading-tight">{item.role}</p>
                </div>
             </div>
           ))}
@@ -354,6 +409,41 @@ export function Testimonials() {
           </div>
         </div>
       </div>
+
+      {/* Video Modal Overlay */}
+      <AnimatePresence>
+        {activeVideo && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setActiveVideo(null)}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/80 backdrop-blur-md p-4 sm:p-6"
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-[800px] aspect-video bg-ink rounded-2xl overflow-hidden border border-ink-line shadow-2xl"
+            >
+              <button
+                onClick={() => setActiveVideo(null)}
+                className="absolute top-4 right-4 z-50 p-2 rounded-full bg-black/40 hover:bg-black/60 text-white transition-colors cursor-pointer"
+              >
+                <X size={20} />
+              </button>
+              <video
+                src={activeVideo}
+                controls
+                autoPlay
+                playsInline
+                className="w-full h-full object-contain"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
