@@ -304,6 +304,7 @@ export function Testimonials() {
       name: "Dr. Anuj Kumar",
       role: "CMO, JP Hospital",
       videoUrl: "https://asset.shubhampal.com/1.mp4",
+      thumbnail: "https://ik.imagekit.io/c9hhonhf9/Param/Testimonial/T1.png?updatedAt=1781697928711",
       initials: "AK",
       color: "from-orange/20 to-mango/30"
     },
@@ -311,6 +312,7 @@ export function Testimonials() {
       name: "Prachi Gupta",
       role: "Life Coach",
       videoUrl: "https://asset.shubhampal.com/4.mp4",
+      thumbnail: "",
       initials: "PG",
       color: "from-sky/20 to-blue/30"
     },
@@ -318,6 +320,7 @@ export function Testimonials() {
       name: "Priya Sharma",
       role: "Co-Founder, CoreY",
       videoUrl: "https://asset.shubhampal.com/3%20(1).mp4",
+      thumbnail: "https://ik.imagekit.io/c9hhonhf9/Param/Testimonial/T3.png?updatedAt=1781697928671",
       initials: "PS",
       color: "from-mango/20 to-orange/30"
     }
@@ -337,32 +340,43 @@ export function Testimonials() {
               onClick={() => setActiveVideo(item.videoUrl)}
               className="snap-start min-w-[260px] sm:min-w-0 aspect-[9/12] bg-[#0E2030]/80 border border-ink-line rounded-[var(--radius)] relative overflow-hidden group cursor-pointer hover:border-orange/50 transition-all duration-300 flex flex-col justify-between p-6"
             >
-               {/* Background Glow */}
-               <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/40 to-transparent z-[1]" />
+               {/* Cover Image or Fallback Gradient */}
+               {item.thumbnail ? (
+                 <img 
+                   src={item.thumbnail} 
+                   alt={item.name} 
+                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                 />
+               ) : (
+                 <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-20`} />
+               )}
+
+               {/* Background Gradient Overlay */}
+               <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/40 to-transparent z-[2]" />
                
                {/* Top Badge */}
                <div className="z-10 flex justify-between items-start">
-                 <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-sky px-2.5 py-1 bg-sky/10 border border-sky/20 rounded-full">
+                 <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-sky px-2.5 py-1 bg-sky/10 border border-sky/20 rounded-full backdrop-blur-sm">
                    Success Story
                  </span>
                </div>
 
                {/* Center Initials/Play Button Container */}
                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3.5 z-10">
-                 <div className="relative">
-                   <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${item.color} flex items-center justify-center font-display text-[22px] font-bold text-silver border border-silver/10 transition-transform duration-300 group-hover:scale-95 group-hover:opacity-40`}>
-                     {item.initials}
-                   </div>
+                 <div className="relative z-10 flex flex-col items-center justify-center">
+                   {!item.thumbnail && (
+                     <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${item.color} flex items-center justify-center font-display text-[22px] font-bold text-silver border border-silver/10 transition-transform duration-300 group-hover:scale-95 group-hover:opacity-40 mb-3`}>
+                       {item.initials}
+                     </div>
+                   )}
                    
                    {/* Play Button Overlay */}
-                   <div className="absolute inset-0 flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity">
-                     <motion.div 
-                       whileTap={{ scale: 0.92 }}
-                       className="w-12 h-12 rounded-full bg-paper/90 text-ink flex items-center justify-center shadow-lg transition-transform group-hover:scale-110"
-                     >
-                       <Play size={18} fill="currentColor" className="ml-0.5 text-ink" />
-                     </motion.div>
-                   </div>
+                   <motion.div 
+                     whileTap={{ scale: 0.92 }}
+                     className="w-14 h-14 rounded-full bg-paper/95 text-ink flex items-center justify-center shadow-lg transition-transform group-hover:scale-110"
+                   >
+                     <Play size={20} fill="currentColor" className="ml-1 text-ink" />
+                   </motion.div>
                  </div>
                </div>
 
