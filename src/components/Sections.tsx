@@ -109,70 +109,55 @@ export function Framework() {
             </div>
           </div>
           
-          <div className="sticky top-24 max-lg:static max-lg:order-first w-full max-w-[360px] lg:max-w-[420px] mx-auto mb-10 lg:mb-0">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 560" className="w-full h-auto rounded-[var(--radius)] border border-ink-line bg-gradient-to-b from-[#0B1B2B] to-[#142C42]">
-              {/* Decorative circles */}
-              <circle cx="380" cy="40" r="60" fill="#F17720" fillOpacity="0.08" />
-              <circle cx="40" cy="520" r="50" fill="#00A7E1" fillOpacity="0.06" />
-              
-              {/* Title */}
-              <text x="210" y="50" textAnchor="middle" fontFamily="Outfit, sans-serif" fontSize="13" fontWeight="700" fill="#EBEBEB" letterSpacing="2">
-                ARMY GOLD STANDARDS
-              </text>
-              
-              {/* Connector line */}
-              <line x1="66" y1="90" x2="66" y2="510" stroke="rgba(235,235,235,0.12)" strokeWidth="2" strokeDasharray="4 6" />
-              
-              {/* Step 01 */}
-              <g>
-                <rect x="30" y="80" width="360" height="90" rx="12" fill="#1E3A52" fillOpacity="0.4" stroke="rgba(241,119,32,0.2)" strokeWidth="1" />
-                <line x1="30" y1="80" x2="30" y2="170" stroke="#F17720" strokeWidth="5" />
-                <circle cx="66" cy="125" r="20" fill="#F17720" fillOpacity="0.15" stroke="#F17720" strokeWidth="1.5" />
-                <text x="66" y="130" textAnchor="middle" fontFamily="Outfit, sans-serif" fontSize="13" fontWeight="700" fill="#F17720">01</text>
-                <text x="106" y="115" fontFamily="Outfit, sans-serif" fontSize="15" fontWeight="700" fill="#EBEBEB">ASSESS</text>
-                <text x="106" y="135" fontFamily="Geist, sans-serif" fontSize="11" fill="rgba(235,235,235,0.6)">Terrain Assessment</text>
-                <text x="106" y="150" fontFamily="Geist, sans-serif" fontSize="11" fill="rgba(235,235,235,0.6)">Know your ground first.</text>
-              </g>
+          <div className="sticky top-24 max-lg:static max-lg:order-first w-full max-w-[360px] lg:max-w-[420px] mx-auto mb-10 lg:mb-0 relative overflow-hidden rounded-[var(--radius)] border border-ink-line bg-gradient-to-b from-[#0B1B2B] to-[#142C42] px-6 py-10 md:px-8">
+            {/* Decorative circles */}
+            <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-[#F17720] opacity-[0.08]" />
+            <div className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-[#00A7E1] opacity-[0.06]" />
+            
+            {/* Title */}
+            <h4 className="text-center font-display text-[13px] font-bold text-[#EBEBEB] tracking-[0.15em] mb-10 relative z-10 uppercase">
+              Army Gold Standards
+            </h4>
+            
+            {/* Connector line */}
+            <div className="absolute left-[47px] md:left-[55px] top-[90px] bottom-[80px] w-[2px] border-l-2 border-dashed border-silver/10 z-0"></div>
 
-              {/* Step 02 */}
-              <g>
-                <rect x="30" y="185" width="360" height="90" rx="12" fill="#1E3A52" fillOpacity="0.4" stroke="rgba(255,166,48,0.2)" strokeWidth="1" />
-                <line x1="30" y1="185" x2="30" y2="275" stroke="#FFA630" strokeWidth="5" />
-                <circle cx="66" cy="230" r="20" fill="#FFA630" fillOpacity="0.15" stroke="#FFA630" strokeWidth="1.5" />
-                <text x="66" y="235" textAnchor="middle" fontFamily="Outfit, sans-serif" fontSize="13" fontWeight="700" fill="#FFA630">02</text>
-                <text x="106" y="220" fontFamily="Outfit, sans-serif" fontSize="15" fontWeight="700" fill="#EBEBEB">PLAN</text>
-                <text x="106" y="240" fontFamily="Geist, sans-serif" fontSize="11" fill="rgba(235,235,235,0.6)">Mission Architecture</text>
-                <text x="106" y="255" fontFamily="Geist, sans-serif" fontSize="11" fill="rgba(235,235,235,0.6)">Plans leading to victory.</text>
-              </g>
+            {/* Steps Container */}
+            <div className="flex flex-col gap-6 relative z-10">
+              {[
+                { num: '01', title: 'ASSESS', subtitle: 'Terrain Assessment', desc: 'Know your ground first.', color: '#F17720', bg: 'rgba(241,119,32,0.12)' },
+                { num: '02', title: 'PLAN', subtitle: 'Mission Architecture', desc: 'Plans leading to victory.', color: '#FFA630', bg: 'rgba(255,166,48,0.12)' },
+                { num: '03', title: 'BUILD', subtitle: 'Discipline Blueprint', desc: 'Discipline is built.', color: '#00A7E1', bg: 'rgba(0,167,225,0.12)' },
+                { num: '04', title: 'REVIEW', subtitle: 'Operation Inner Truth', desc: 'Understand yourself better.', color: '#0474BA', bg: 'rgba(4,116,186,0.12)' }
+              ].map((s, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ delay: 0.1 * i, duration: 0.4, ease: "easeOut" }}
+                  className="flex gap-4 md:gap-5 items-center bg-[#1E3A52]/40 rounded-xl p-4 md:p-5 border border-transparent relative overflow-hidden group transition-transform hover:-translate-y-1"
+                  style={{ borderColor: `${s.color}25` }}
+                >
+                  <div className="absolute left-0 top-0 bottom-0 w-[4px]" style={{ backgroundColor: s.color }}></div>
+                  <div className="flex-shrink-0 w-11 h-11 md:w-12 md:h-12 rounded-full flex items-center justify-center font-display text-[14px] md:text-[15px] font-bold z-10" style={{ color: s.color, backgroundColor: s.bg, border: `1.5px solid ${s.color}` }}>
+                    {s.num}
+                  </div>
+                  <div className="flex flex-col gap-0.5 z-10">
+                    <span className="font-display text-[15px] md:text-[16px] font-bold text-[#EBEBEB]">{s.title}</span>
+                    <span className="text-[12px] md:text-[13px] text-silver/65">{s.subtitle}</span>
+                    <span className="text-[12px] md:text-[13px] text-silver/65 leading-tight">{s.desc}</span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
 
-              {/* Step 03 */}
-              <g>
-                <rect x="30" y="290" width="360" height="90" rx="12" fill="#1E3A52" fillOpacity="0.4" stroke="rgba(0,167,225,0.2)" strokeWidth="1" />
-                <line x1="30" y1="290" x2="30" y2="380" stroke="#00A7E1" strokeWidth="5" />
-                <circle cx="66" cy="335" r="20" fill="#00A7E1" fillOpacity="0.15" stroke="#00A7E1" strokeWidth="1.5" />
-                <text x="66" y="340" textAnchor="middle" fontFamily="Outfit, sans-serif" fontSize="13" fontWeight="700" fill="#00A7E1">03</text>
-                <text x="106" y="325" fontFamily="Outfit, sans-serif" fontSize="15" fontWeight="700" fill="#EBEBEB">BUILD</text>
-                <text x="106" y="345" fontFamily="Geist, sans-serif" fontSize="11" fill="rgba(235,235,235,0.6)">Discipline Blueprint</text>
-                <text x="106" y="360" fontFamily="Geist, sans-serif" fontSize="11" fill="rgba(235,235,235,0.6)">Discipline is built.</text>
-              </g>
-
-              {/* Step 04 */}
-              <g>
-                <rect x="30" y="395" width="360" height="90" rx="12" fill="#1E3A52" fillOpacity="0.4" stroke="rgba(4,116,186,0.2)" strokeWidth="1" />
-                <line x1="30" y1="395" x2="30" y2="485" stroke="#0474BA" strokeWidth="5" />
-                <circle cx="66" cy="440" r="20" fill="#0474BA" fillOpacity="0.15" stroke="#0474BA" strokeWidth="1.5" />
-                <text x="66" y="445" textAnchor="middle" fontFamily="Outfit, sans-serif" fontSize="13" fontWeight="700" fill="#0474BA">04</text>
-                <text x="106" y="430" fontFamily="Outfit, sans-serif" fontSize="15" fontWeight="700" fill="#EBEBEB">REVIEW</text>
-                <text x="106" y="450" fontFamily="Geist, sans-serif" fontSize="11" fill="rgba(235,235,235,0.6)">Operation Inner Truth</text>
-                <text x="106" y="465" fontFamily="Geist, sans-serif" fontSize="11" fill="rgba(235,235,235,0.6)">Understand yourself better.</text>
-              </g>
-              
-              {/* Bottom Badge */}
-              <rect x="110" y="505" width="200" height="28" rx="14" fill="#F17720" />
-              <text x="210" y="523" textAnchor="middle" fontFamily="Outfit, sans-serif" fontSize="11" fontWeight="700" fill="#1A0A00">
+            {/* Bottom Badge */}
+            <div className="mt-10 flex justify-center relative z-10">
+              <div className="bg-[#F17720] text-[#1A0A00] rounded-full px-5 py-2 font-display text-[11px] md:text-[12px] font-bold tracking-[0.05em]">
                 PARAM &bull; THE VICTORY CODE
-              </text>
-            </svg>
+              </div>
+            </div>
           </div>
         </div>
       </div>
