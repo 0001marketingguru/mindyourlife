@@ -312,7 +312,7 @@ export function Testimonials() {
       name: "Prachi Gupta",
       role: "Life Coach",
       videoUrl: "https://asset.shubhampal.com/4.mp4",
-      thumbnail: "",
+      thumbnail: "https://ik.imagekit.io/c9hhonhf9/Param/Testimonial/T4?updatedAt=1782877113106",
       initials: "PG",
       color: "from-sky/20 to-blue/30"
     },
@@ -327,100 +327,138 @@ export function Testimonials() {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-ink-soft text-silver overflow-hidden">
+    <section className="py-20 md:py-32 bg-ink-soft text-silver overflow-hidden">
       <div className="section-inner">
-        <span className="eyebrow eyebrow-light">From past attendees</span>
-        <h2 className="text-[clamp(1.9rem,3.2vw,2.4rem)] mb-4 max-w-[560px] text-balance">Real people. Real shifts.</h2>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-6"
+        >
+          <div>
+            <h2 className="text-[clamp(2.4rem,4vw,3.6rem)] leading-[1.1] tracking-tighter mb-4 text-balance">
+              Real people.<br />Real shifts.
+            </h2>
+            <p className="text-silver/60 text-[16px] md:text-[18px] max-w-[480px]">
+              The frameworks we teach aren't theoretical. They are battlefield-tested systems applied to daily life, leadership, and scale.
+            </p>
+          </div>
+        </motion.div>
 
-        <span className="block font-mono text-xs tracking-[0.1em] uppercase text-sky mb-5">Video testimonials</span>
-        <div className="flex overflow-x-auto snap-x snap-mandatory gap-5 pb-4 scrollbar-none md:grid md:grid-cols-3 md:overflow-visible mb-12">
+        {/* Video Testimonials with Stagger Reveal */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
           {videoTestimonials.map((item, idx) => (
-            <div 
-              key={idx} 
+            <motion.div 
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
               onClick={() => setActiveVideo(item.videoUrl)}
-              className="snap-start min-w-[260px] sm:min-w-0 aspect-[9/12] bg-[#0E2030]/80 border border-ink-line rounded-[var(--radius)] relative overflow-hidden group cursor-pointer hover:border-orange/50 transition-all duration-300 flex flex-col justify-between p-6"
+              className="group aspect-[4/5] bg-ink/40 border border-white/5 hover:border-white/10 rounded-2xl relative overflow-hidden cursor-pointer transition-colors duration-500 flex flex-col justify-between p-7"
             >
                {/* Cover Image or Fallback Gradient */}
                {item.thumbnail ? (
                  <img 
                    src={item.thumbnail} 
                    alt={item.name} 
-                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
                  />
                ) : (
-                 <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-20`} />
+                 <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-20 transition-opacity duration-500 group-hover:opacity-30`} />
                )}
 
                {/* Background Gradient Overlay */}
-               <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/40 to-transparent z-[2]" />
+               <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent z-[2]" />
                
                {/* Top Badge */}
                <div className="z-10 flex justify-between items-start">
-                 <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-sky px-2.5 py-1 bg-sky/10 border border-sky/20 rounded-full backdrop-blur-sm">
-                   Success Story
+                 <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-silver/80 px-3 py-1.5 bg-ink/40 border border-white/10 rounded-full backdrop-blur-md">
+                   Case Study
                  </span>
                </div>
 
-               {/* Center Initials/Play Button Container */}
-               <div className="absolute inset-0 flex flex-col items-center justify-center gap-3.5 z-10">
-                 <div className="relative z-10 flex flex-col items-center justify-center">
-                   {!item.thumbnail && (
-                     <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${item.color} flex items-center justify-center font-display text-[22px] font-bold text-silver border border-silver/10 transition-transform duration-300 group-hover:scale-95 group-hover:opacity-40 mb-3`}>
-                       {item.initials}
-                     </div>
-                   )}
-                   
-                   {/* Play Button Overlay */}
-                   <motion.div 
-                     whileTap={{ scale: 0.92 }}
-                     className="w-14 h-14 rounded-full bg-paper/95 text-ink flex items-center justify-center shadow-lg transition-transform group-hover:scale-110"
-                   >
-                     <Play size={20} fill="currentColor" className="ml-1 text-ink" />
-                   </motion.div>
+               {/* Center Play Button Container */}
+               <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
+                 {!item.thumbnail && (
+                   <div className={`absolute w-24 h-24 rounded-full bg-gradient-to-br ${item.color} flex items-center justify-center font-display text-[32px] font-bold text-silver border border-silver/10 transition-transform duration-500 group-hover:scale-90 group-hover:opacity-30 opacity-40 blur-sm`}>
+                     {item.initials}
+                   </div>
+                 )}
+                 
+                 <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center justify-center shadow-2xl transition-all duration-300 group-hover:scale-110 group-hover:bg-white/20">
+                   <Play size={22} fill="currentColor" className="ml-1 text-white" />
                  </div>
                </div>
 
                {/* Profile Info */}
-               <div className="z-10 mt-auto pt-4">
-                 <h3 className="text-[16.5px] font-bold text-silver mb-0.5 leading-tight">{item.name}</h3>
-                 <p className="text-[12px] text-mango font-mono tracking-wide leading-tight">{item.role}</p>
+               <div className="z-10 mt-auto pt-4 relative">
+                 <h3 className="text-[1.25rem] font-bold text-white mb-1 leading-tight tracking-tight">{item.name}</h3>
+                 <p className="text-[13px] text-white/60 font-medium tracking-wide">{item.role}</p>
                </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        <span className="block font-mono text-xs tracking-[0.1em] uppercase text-sky mb-5 mt-12">Written testimonials</span>
-        <div className="flex overflow-x-auto snap-x snap-mandatory gap-5 pb-4 scrollbar-none md:grid md:grid-cols-3 md:overflow-visible">
-          <div className="snap-start min-w-[280px] sm:min-w-0 bg-silver/5 border border-ink-line rounded-[var(--radius)] p-6 flex flex-col min-h-[190px]">
-            <p className="text-[14.5px] md:text-[15px] leading-[1.6] text-silver/85 mb-5">“I finally stopped guessing. The audit alone showed me where I'd been avoiding the real problem for a year.”</p>
-            <div className="flex items-center gap-3 mt-auto">
-              <div className="w-10 h-10 rounded-full bg-blue text-white flex items-center justify-center font-bold">P</div>
-              <div className="flex flex-col gap-0.5">
-                <span className="text-[13px] md:text-[13.5px] text-silver font-semibold">Previous Participant</span>
-                <span className="text-xs text-mango">Workshop Attendee</span>
+        {/* Written Testimonials - Asymmetric Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="md:col-span-7 bg-ink/40 border border-white/5 rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-[240px]"
+          >
+            <p className="text-[18px] md:text-[22px] leading-[1.5] text-silver/90 mb-8 tracking-tight">
+              "I finally stopped guessing. The audit alone showed me where I'd been avoiding the real problem for a year."
+            </p>
+            <div className="flex items-center gap-4 mt-auto">
+              <div className="w-12 h-12 rounded-full bg-ink border border-white/10 text-white flex items-center justify-center font-bold text-lg">P</div>
+              <div className="flex flex-col">
+                <span className="text-[14px] text-white font-semibold">Previous Participant</span>
+                <span className="text-[13px] text-white/50">Workshop Attendee</span>
               </div>
             </div>
-          </div>
-          <div className="snap-start min-w-[280px] sm:min-w-0 bg-silver/5 border border-ink-line rounded-[var(--radius)] p-6 flex flex-col min-h-[190px]">
-            <p className="text-[14.5px] md:text-[15px] leading-[1.6] text-silver/85 mb-5">“Simple, structured, and something I actually kept using weeks later — not just workshop-day motivation.”</p>
-            <div className="flex items-center gap-3 mt-auto">
-              <div className="w-10 h-10 rounded-full bg-orange text-white flex items-center justify-center font-bold">R</div>
-              <div className="flex flex-col gap-0.5">
-                <span className="text-[13px] md:text-[13.5px] text-silver font-semibold">Previous Participant</span>
-                <span className="text-xs text-mango">Workshop Attendee</span>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="md:col-span-5 bg-ink/40 border border-white/5 rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-[240px]"
+          >
+            <p className="text-[16px] md:text-[18px] leading-[1.6] text-silver/90 mb-8">
+              "Simple, structured, and something I actually kept using weeks later — not just workshop-day motivation."
+            </p>
+            <div className="flex items-center gap-4 mt-auto">
+              <div className="w-12 h-12 rounded-full bg-ink border border-white/10 text-white flex items-center justify-center font-bold text-lg">R</div>
+              <div className="flex flex-col">
+                <span className="text-[14px] text-white font-semibold">Previous Participant</span>
+                <span className="text-[13px] text-white/50">Workshop Attendee</span>
               </div>
             </div>
-          </div>
-          <div className="snap-start min-w-[280px] sm:min-w-0 bg-silver/5 border border-ink-line rounded-[var(--radius)] p-6 flex flex-col min-h-[190px]">
-            <p className="text-[14.5px] md:text-[15px] leading-[1.6] text-silver/85 mb-5">“The routine framework was the missing piece. My weeks finally have a shape.”</p>
-            <div className="flex items-center gap-3 mt-auto">
-              <div className="w-10 h-10 rounded-full bg-mango text-white flex items-center justify-center font-bold">S</div>
-              <div className="flex flex-col gap-0.5">
-                <span className="text-[13px] md:text-[13.5px] text-silver font-semibold">Previous Participant</span>
-                <span className="text-xs text-mango">Workshop Attendee</span>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="md:col-span-12 md:w-3/4 mx-auto bg-gradient-to-br from-ink/40 to-ink/20 border border-white/5 rounded-2xl p-8 md:p-10 flex flex-col items-center text-center min-h-[200px]"
+          >
+            <p className="text-[18px] md:text-[20px] leading-[1.5] text-silver/90 mb-8 max-w-[600px]">
+              "The routine framework was the missing piece. My weeks finally have a shape."
+            </p>
+            <div className="flex items-center gap-4 mt-auto">
+              <div className="w-12 h-12 rounded-full bg-ink border border-white/10 text-white flex items-center justify-center font-bold text-lg">S</div>
+              <div className="flex flex-col text-left">
+                <span className="text-[14px] text-white font-semibold">Previous Participant</span>
+                <span className="text-[13px] text-white/50">Workshop Attendee</span>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
@@ -432,18 +470,18 @@ export function Testimonials() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setActiveVideo(null)}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/80 backdrop-blur-md p-4 sm:p-6"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/90 backdrop-blur-md p-4 sm:p-6"
           >
             <motion.div
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-[800px] aspect-video bg-ink rounded-2xl overflow-hidden border border-ink-line shadow-2xl"
+              className="relative w-full max-w-[800px] aspect-video bg-ink rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
             >
               <button
                 onClick={() => setActiveVideo(null)}
-                className="absolute top-4 right-4 z-50 p-2 rounded-full bg-black/40 hover:bg-black/60 text-white transition-colors cursor-pointer"
+                className="absolute top-4 right-4 z-50 p-2.5 rounded-full bg-black/40 hover:bg-black/60 text-white backdrop-blur-sm transition-colors cursor-pointer"
               >
                 <X size={20} />
               </button>
